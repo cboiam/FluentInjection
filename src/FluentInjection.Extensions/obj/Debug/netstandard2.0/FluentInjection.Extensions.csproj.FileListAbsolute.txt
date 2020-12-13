@@ -1,0 +1,9 @@
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\bin\Debug\netstandard2.0\FluentInjection.Extensions.deps.json
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\bin\Debug\netstandard2.0\FluentInjection.Extensions.dll
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\bin\Debug\netstandard2.0\FluentInjection.Extensions.pdb
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.csprojAssemblyReference.cache
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.AssemblyInfoInputs.cache
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.AssemblyInfo.cs
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.csproj.CoreCompileInputs.cache
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.dll
+d:\workspace\FluentInjection\src\FluentInjection.Extensions\obj\Debug\netstandard2.0\FluentInjection.Extensions.pdb

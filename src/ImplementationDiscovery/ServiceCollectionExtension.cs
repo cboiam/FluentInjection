@@ -4,9 +4,9 @@ using System.Linq;
 using System.Reflection;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FluentInjection.Extensions
+namespace ImplementationDiscovery.Extensions
 {
-    public static class ImplementationDiscoveryExtension
+    public static class ServiceCollectionExtension
     {
         private const string NotInterfaceMessage = "The service for type {0} is not supported due to not being an interface.";
 

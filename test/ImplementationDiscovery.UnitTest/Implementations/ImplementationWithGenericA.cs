@@ -1,7 +1,7 @@
 using System.Collections.Generic;
-using FluentInjection.Extensions.UnitTest.Interfaces;
+using ImplementationDiscovery.Extensions.UnitTest.Interfaces;
 
-namespace FluentInjection.Extensions.UnitTest.Implementations
+namespace ImplementationDiscovery.Extensions.UnitTest.Implementations
 {
     public class ImplementationWithGenericA : IInterfaceWithGeneric<string, int>,
         IInterfaceWithGeneric<IEnumerable<string>, IEnumerable<int>>

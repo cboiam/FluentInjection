@@ -1,12 +1,12 @@
 using System;
 using System.Collections.Generic;
 using FluentAssertions;
-using FluentInjection.Extensions.UnitTest.Implementations;
-using FluentInjection.Extensions.UnitTest.Interfaces;
+using ImplementationDiscovery.Extensions.UnitTest.Implementations;
+using ImplementationDiscovery.Extensions.UnitTest.Interfaces;
 using Microsoft.Extensions.DependencyInjection;
 using Xunit;
 
-namespace FluentInjection.Extensions.UnitTest
+namespace ImplementationDiscovery.Extensions.UnitTest
 {
     public class InjectionTest
     {
@@ -62,7 +62,7 @@ namespace FluentInjection.Extensions.UnitTest
         {
             Action act = () => services.RegisterImplementationsOf<BasicImplementation>();
             act.Should().Throw<NotSupportedException>()
-                .WithMessage("The service for type FluentInjection.Extensions.UnitTest.Implementations.BasicImplementation is not supported due to not being an interface.");
+                .WithMessage("The service for type ImplementationDiscovery.Extensions.UnitTest.Implementations.BasicImplementation is not supported due to not being an interface.");
         }
 
         [Fact]

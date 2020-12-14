@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace FluentInjection.Extensions
+namespace ImplementationDiscovery.Extensions
 {
     public class ServiceAggregator
     {

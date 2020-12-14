@@ -5,11 +5,11 @@ VisualStudioVersion = 15.0.26124.0
 MinimumVisualStudioVersion = 15.0.26124.0
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{E2CCFE3D-11FF-4D29-B2A1-D1AB2575F6D4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentInjection.Extensions", "src\FluentInjection.Extensions\FluentInjection.Extensions.csproj", "{CBC2538A-7F01-4DBD-98E2-8916FFB8DD9E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplementationDiscovery", "src\ImplementationDiscovery\ImplementationDiscovery.csproj", "{CBC2538A-7F01-4DBD-98E2-8916FFB8DD9E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{1BBF89EC-1F41-40D0-A22A-FEADFBF37227}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FluentInjection.Extensions.UnitTest", "test\FluentInjection.Extensions.UnitTest\FluentInjection.Extensions.UnitTest.csproj", "{2A282F24-F4FF-4AD6-9D5D-E7EE880E7B32}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ImplementationDiscovery.UnitTest", "test\ImplementationDiscovery.UnitTest\ImplementationDiscovery.UnitTest.csproj", "{2A282F24-F4FF-4AD6-9D5D-E7EE880E7B32}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

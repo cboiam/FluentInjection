@@ -1,6 +1,6 @@
 using System;
 
-namespace FluentInjection.Extensions
+namespace ImplementationDiscovery.Extensions
 {
     internal class MappedImplementation
     {

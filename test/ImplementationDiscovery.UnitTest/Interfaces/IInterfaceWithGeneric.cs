@@ -1,4 +1,4 @@
-namespace FluentInjection.Extensions.UnitTest.Interfaces
+namespace ImplementationDiscovery.Extensions.UnitTest.Interfaces
 {
     public interface IInterfaceWithGeneric<T, U>
     {

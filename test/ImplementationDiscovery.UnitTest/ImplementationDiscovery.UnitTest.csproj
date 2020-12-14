@@ -2,7 +2,6 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-
     <IsPackable>false</IsPackable>
   </PropertyGroup>
 
@@ -21,7 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\FluentInjection.Extensions\FluentInjection.Extensions.csproj" />
+    <ProjectReference Include="..\..\src\ImplementationDiscovery\ImplementationDiscovery.csproj" />
   </ItemGroup>
 
 </Project>

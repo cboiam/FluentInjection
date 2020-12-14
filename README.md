@@ -1,6 +1,6 @@
-# FluentInjection
+# ImplementationDiscovery
 
-Fluent Injection is a helper library that extends the options for Microsoft.Extensions.DependencyInjection with a method to discover the implementations of your service and inject it.
+Implementation Discovery is a helper library that extends the options for Microsoft.Extensions.DependencyInjection with a method to discover the implementations of your service and inject it.
 
 ## Example with simple interface
 

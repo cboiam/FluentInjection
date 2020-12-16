@@ -1,6 +1,6 @@
 # ImplementationDiscovery
 
-Implementation Discovery is a helper library that extends the options for Microsoft.Extensions.DependencyInjection with a method to discover the implementations of your service and inject it.
+Implementation Discovery is a helper library that extends the options of Microsoft.Extensions.DependencyInjection with functions for discovering the implementations of your service and injecting it.
 
 ## Example with simple interface
 
@@ -8,7 +8,7 @@ Implementation Discovery is a helper library that extends the options for Micros
 public void ConfigureServices(IServiceCollection services)
 {
    //... other services
-   service.RegisterImplementationsOf<IExampleInterface>().AsScoped();
+   service.MapImplementationsOf<IExampleInterface>().AsScoped();
 }
 ```
 
@@ -18,6 +18,8 @@ public void ConfigureServices(IServiceCollection services)
 public void ConfigureServices(IServiceCollection services)
 {
    //... other services
-   service.RegisterImplementationsOf(typeof(IExampleInterface<,>)).AsTransient();
+   service.MapImplementationsOf(typeof(IExampleInterface<,>)).AsTransient();
 }
 ```
+
+You can inject them with `AsTransient()`, `AsScoped()` or `AsSingleton()`.

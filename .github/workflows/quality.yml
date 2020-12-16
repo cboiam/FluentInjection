@@ -5,7 +5,7 @@ on:
     branches: [ main, develop ]
 
 jobs:
-  build:
+  analyze:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
@@ -15,11 +15,14 @@ jobs:
       uses: Secbyte/dotnet-sonarscanner@v2.3
       with:
         buildCommand: dotnet build
-        testCommand: dotnet test
+        testCommand: dotnet test . --logger "trx" --collect "Code Coverage"
         projectKey: cboiam_ImplementationDiscovery
         projectName: ImplementationDiscovery
         sonarHostname: https://sonarcloud.io
         sonarOrganisation: cboiam
+        beginArguments: >
+            /d:sonar.verbose="true"
+            /d:sonar.cs.vstest.reportsPaths=./TestResults/**.trx
       env:
         SONAR_TOKEN: ${{ secrets.SONAR_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

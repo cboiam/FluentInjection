@@ -24,4 +24,4 @@ jobs:
     - name: Pack
       run: dotnet pack --configuration Release --no-restore --no-build
     - name: Push package to NuGet
-      run: ls
+      run: dotnet nuget push src/ImplementationDiscovery/bin/Release/*.nupkg --skip-duplicate --api-key ${{ secrets.NUGET_KEY }} --source https://api.nuget.org/v3/index.json

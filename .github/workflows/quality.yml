@@ -1,0 +1,25 @@
+name: Quality
+
+on:
+  push:
+    branches: [ main, develop ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        fetch-depth: 0
+    - name: Sonarscanner
+      uses: Secbyte/dotnet-sonarscanner@v2.3
+      with:
+        buildCommand: dotnet build
+        testCommand: dotnet test
+        projectKey: cboiam_ImplementationDiscovery
+        projectName: ImplementationDiscovery
+        sonarHostname: https://sonarcloud.io
+        sonarOrganisation: cboiam
+      env:
+        SONAR_TOKEN: ${{ secrets.SONAR_KEY }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

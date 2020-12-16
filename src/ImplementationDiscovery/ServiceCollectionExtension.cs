@@ -22,11 +22,11 @@ namespace ImplementationDiscovery.Extensions
         /// <summary>
         /// Map the implementations of provided interface.
         /// </summary>
-        /// <typeparam name="TInterface">Interface for implementation discovery</typeparam>
         /// <param name="services"></param>
+        /// <param name="interfaceType">Interface for implementation discovery</param>
         /// <returns>Mapped services.</returns>
-        public static ServiceAggregator MapImplementationsOf(this IServiceCollection services, Type abstractionType)
-            => GetImplementations(services, abstractionType, Assembly.GetCallingAssembly());
+        public static ServiceAggregator MapImplementationsOf(this IServiceCollection services, Type interfaceType)
+            => GetImplementations(services, interfaceType, Assembly.GetCallingAssembly());
 
         /// <summary>
         /// Register mapped services as transient

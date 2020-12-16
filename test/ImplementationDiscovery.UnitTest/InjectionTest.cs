@@ -20,7 +20,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenIRegisteredBasicInterface_WhenIGetFromInjectedInterface_ThenIShouldGetTheImplementation()
         {
-            services.RegisterImplementationsOf<IBasicInterface>().AsSingleton();
+            services.MapImplementationsOf<IBasicInterface>().AsSingleton();
             
             var provider = services.BuildServiceProvider();
             
@@ -31,7 +31,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenIRegisteredAllBasicInterfaces_WhenIGetFromInjectedInterface_ThenIShouldGetAllTheImplementations()
         {
-            services.RegisterImplementationsOf<IMultipleInterface>().AsTransient();
+            services.MapImplementationsOf<IMultipleInterface>().AsTransient();
             
             var provider = services.BuildServiceProvider();
             
@@ -43,7 +43,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenIRegisteredAllInterfacesWithGenerics_WhenIGetFromInjectedInterface_ThenIShouldGetAllTheImplementations()
         {
-            services.RegisterImplementationsOf(typeof(IInterfaceWithGeneric<,>)).AsScoped();
+            services.MapImplementationsOf(typeof(IInterfaceWithGeneric<,>)).AsScoped();
             
             var provider = services.BuildServiceProvider();
             
@@ -60,7 +60,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenAServiceCollection_WhenITryToInjectAConcreteClass_ThenAnExceptionShouldBeThrown()
         {
-            Action act = () => services.RegisterImplementationsOf<BasicImplementation>();
+            Action act = () => services.MapImplementationsOf<BasicImplementation>();
             act.Should().Throw<NotSupportedException>()
                 .WithMessage("The service for type ImplementationDiscovery.Extensions.UnitTest.Implementations.BasicImplementation is not supported due to not being an interface.");
         }
@@ -68,7 +68,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenAServiceCollection_WhenITryToInjectANullServiceType_ThenAnExceptionShouldBeThrown()
         {
-            Action act = () => services.RegisterImplementationsOf(null);
+            Action act = () => services.MapImplementationsOf(null);
             act.Should().Throw<ArgumentNullException>()
                 .WithMessage("Value cannot be null. (Parameter 'serviceType')");
         }

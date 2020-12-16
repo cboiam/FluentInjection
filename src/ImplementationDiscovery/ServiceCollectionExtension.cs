@@ -10,18 +10,45 @@ namespace ImplementationDiscovery.Extensions
     {
         private const string NotInterfaceMessage = "The service for type {0} is not supported due to not being an interface.";
 
-        public static ServiceAggregator RegisterImplementationsOf<TAbstraction>(this IServiceCollection services)
-            => GetImplementations(services, typeof(TAbstraction), Assembly.GetCallingAssembly());
+        /// <summary>
+        /// Map the implementations of provided interface.
+        /// </summary>
+        /// <typeparam name="TInterface">Interface for implementation discovery</typeparam>
+        /// <param name="services"></param>
+        /// <returns>Mapped services.</returns>
+        public static ServiceAggregator MapImplementationsOf<TInterface>(this IServiceCollection services)
+            => GetImplementations(services, typeof(TInterface), Assembly.GetCallingAssembly());
 
-        public static ServiceAggregator RegisterImplementationsOf(this IServiceCollection services, Type abstractionType)
+        /// <summary>
+        /// Map the implementations of provided interface.
+        /// </summary>
+        /// <typeparam name="TInterface">Interface for implementation discovery</typeparam>
+        /// <param name="services"></param>
+        /// <returns>Mapped services.</returns>
+        public static ServiceAggregator MapImplementationsOf(this IServiceCollection services, Type abstractionType)
             => GetImplementations(services, abstractionType, Assembly.GetCallingAssembly());
 
+        /// <summary>
+        /// Register mapped services as transient
+        /// </summary>
+        /// <param name="injectionData">Mapped services</param>
+        /// <returns></returns>
         public static IServiceCollection AsTransient(this ServiceAggregator injectionData)
             => Inject(injectionData, ServiceLifetime.Transient);
 
+        /// <summary>
+        /// Register mapped services as scoped
+        /// </summary>
+        /// <param name="injectionData">Mapped services</param>
+        /// <returns></returns>
         public static IServiceCollection AsScoped(this ServiceAggregator injectionData)
             => Inject(injectionData, ServiceLifetime.Scoped);
 
+        /// <summary>
+        /// Register mapped services as singleton
+        /// </summary>
+        /// <param name="injectionData">Mapped services</param>
+        /// <returns></returns>
         public static IServiceCollection AsSingleton(this ServiceAggregator injectionData)
             => Inject(injectionData, ServiceLifetime.Singleton);
 

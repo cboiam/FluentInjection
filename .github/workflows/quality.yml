@@ -20,7 +20,9 @@ jobs:
           path: ~\.sonar\cache
           key: ${{ runner.os }}-sonar-cache
           restore-keys: ${{ runner.os }}-sonar-cache
-
+      - uses: actions/setup-java@v1
+        with:
+          java-version: '11'
       - name: Cache SonarCloud scanner
         id: cache-sonar-scanner
         uses: actions/cache@v1

@@ -1,6 +1,6 @@
 # ImplementationDiscovery
 
-[!Build(https://github.com/cboiam/ImplementationDiscovery/workflows/Build/badge.svg?branch=main)]
+![Build](https://github.com/cboiam/ImplementationDiscovery/workflows/Build/badge.svg?branch=main)
 [![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=cboiam_ImplementationDiscovery)](https://sonarcloud.io/dashboard?id=cboiam_ImplementationDiscovery)
 
 Implementation Discovery is a helper library that extends the options of Microsoft.Extensions.DependencyInjection with functions for discovering the implementations of your service and injecting it.

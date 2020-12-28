@@ -16,11 +16,7 @@ jobs:
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: 3.1
-    - name: Install dependencies
-      run: dotnet restore --no-cache
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
     - name: Pack
-      run: dotnet pack --configuration Release --no-restore --no-build
+      run: dotnet pack -c Release
     - name: Push package to NuGet
       run: dotnet nuget push ./src/ImplementationDiscovery/bin/Release/*.nupkg --api-key ${{ secrets.NUGET_KEY }} --skip-duplicate --source https://api.nuget.org/v3/index.json

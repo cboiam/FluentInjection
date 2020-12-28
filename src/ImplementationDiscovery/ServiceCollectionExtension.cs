@@ -15,6 +15,26 @@ namespace ImplementationDiscovery.Extensions
         /// </summary>
         /// <typeparam name="TInterface">Interface for implementation discovery</typeparam>
         /// <param name="services"></param>
+        /// <param name="assembly"></param>
+        /// <returns>Mapped services.</returns>
+        public static ServiceAggregator MapImplementationsOf<TInterface>(this IServiceCollection services, Assembly assembly)
+            => GetImplementations(services, typeof(TInterface), assembly);
+
+        /// <summary>
+        /// Map the implementations of provided interface.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <param name="interfaceType">Interface for implementation discovery</param>
+        /// <param name="assembly"></param>
+        /// <returns>Mapped services.</returns>
+        public static ServiceAggregator MapImplementationsOf(this IServiceCollection services, Type interfaceType, Assembly assembly)
+            => GetImplementations(services, interfaceType, assembly);
+        
+        /// <summary>
+        /// Map the implementations of provided interface.
+        /// </summary>
+        /// <typeparam name="TInterface">Interface for implementation discovery</typeparam>
+        /// <param name="services"></param>
         /// <returns>Mapped services.</returns>
         public static ServiceAggregator MapImplementationsOf<TInterface>(this IServiceCollection services)
             => GetImplementations(services, typeof(TInterface), Assembly.GetCallingAssembly());

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Reflection;
 using FluentAssertions;
 using ImplementationDiscovery.Extensions.UnitTest.Implementations;
 using ImplementationDiscovery.Extensions.UnitTest.Interfaces;
@@ -20,7 +21,8 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenIRegisteredBasicInterface_WhenIGetFromInjectedInterface_ThenIShouldGetTheImplementation()
         {
-            services.MapImplementationsOf<IBasicInterface>().AsSingleton();
+            services.MapImplementationsOf<IBasicInterface>(Assembly.GetExecutingAssembly())
+                .AsSingleton();
             
             var provider = services.BuildServiceProvider();
             
@@ -60,7 +62,7 @@ namespace ImplementationDiscovery.Extensions.UnitTest
         [Fact]
         public void GivenAServiceCollection_WhenITryToInjectAConcreteClass_ThenAnExceptionShouldBeThrown()
         {
-            Action act = () => services.MapImplementationsOf<BasicImplementation>();
+            Action act = () => services.MapImplementationsOf(typeof(BasicImplementation), Assembly.GetExecutingAssembly());
             act.Should().Throw<NotSupportedException>()
                 .WithMessage("The service for type ImplementationDiscovery.Extensions.UnitTest.Implementations.BasicImplementation is not supported due to not being an interface.");
         }

@@ -29,7 +29,7 @@ namespace ImplementationDiscovery.Extensions
         /// <returns>Mapped services.</returns>
         public static ServiceAggregator MapImplementationsOf(this IServiceCollection services, Type interfaceType, Assembly assembly)
             => GetImplementations(services, interfaceType, assembly);
-        
+
         /// <summary>
         /// Map the implementations of provided interface.
         /// </summary>
@@ -74,25 +74,26 @@ namespace ImplementationDiscovery.Extensions
 
         private static ServiceAggregator GetImplementations(IServiceCollection services, Type serviceType, Assembly assembly)
         {
-            if(serviceType == null)
+            if (serviceType == null)
             {
                 throw new ArgumentNullException(nameof(serviceType));
             }
-
-            if (!serviceType.IsInterface)
+            else if ((serviceType.IsInterface == false) == true)
             {
                 throw new NotSupportedException(string.Format(NotInterfaceMessage, serviceType.FullName));
             }
+            else
+            {
+                IEnumerable<MappedImplementation> mappedImplementations = assembly.GetTypes()
+                    .Where(type => !type.IsInterface &&
+                        !type.IsAbstract &&
+                        type.GetInterfaces().Any(service => service.Name == serviceType.Name))
+                    .SelectMany(type => type.GetInterfaces()
+                        .Where(service => service.Name == serviceType.Name)
+                        .Select(service => new MappedImplementation(service, type)));
 
-            IEnumerable<MappedImplementation> mappedImplementations = assembly.GetTypes()
-                .Where(type => !type.IsInterface &&
-                    !type.IsAbstract &&
-                    type.GetInterfaces().Any(service => service.Name == serviceType.Name))
-                .SelectMany(type => type.GetInterfaces()
-                    .Where(service => service.Name == serviceType.Name)
-                    .Select(service => new MappedImplementation(service, type)));
-
-            return new ServiceAggregator(services, mappedImplementations);
+                return new ServiceAggregator(services, mappedImplementations);
+            }
         }
 
         private static IServiceCollection Inject(ServiceAggregator injectionData, ServiceLifetime serviceLifetime)
